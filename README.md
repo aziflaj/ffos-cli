@@ -15,7 +15,7 @@ cd ffos-cli
 make
 ```
 
-This will compile ffos-cli. After that, add ffos-cli to your path. You've got ffos completely installed now.
+This will compile ffos-cli. After that, add ffos-cli to your path. You've got ffos-cli completely installed now.
 
 ### Creating a new project ###
 In order to create a new project folder with ffos-cli, you should execute
