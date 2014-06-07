@@ -10,7 +10,7 @@ sudo apt-get install libjansson-dev
 
 After that, clone this repository to your machine by executing
 ```
-git clone https://aziflaj@bitbucket.org/aziflaj/ffos-cli.git
+git clone https://github.com/aziflaj/ffos-cli.git
 cd ffos-cli
 make
 ```
