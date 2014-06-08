@@ -125,6 +125,7 @@ void add(int argc,char **args) {
 		}
 		fclose(fp);
 	}
+	
 }
 
 void set(int argc,char **args) {
@@ -192,10 +193,25 @@ void set(int argc,char **args) {
 		json_object_set(manifest,"description",json_string(descr));
 		json_dump_file(manifest,mfname,JSON_INDENT(4));
 	}
-}
+	
+	else if (!strcmp(whatset,"permission")) {
+		if (argc != 5) {
+			help();
+			exit(3);
+		}
+		
+		char *prm = args[3];
+		char *descr = args[4];
+		
+		json_t *permissions = json_object_get(manifest,"permissions");
+		if (!permissions) permissions = json_object();
+		json_t *new_perm = json_object();
+		json_object_set(new_perm,"description",json_string(descr));
+		json_object_set(permissions,prm,new_perm);
+		json_object_set(manifest,"permissions",permissions);
+		json_dump_file(manifest,mfname,JSON_INDENT(4));
+	}
 
-void delete(int argc,char **args) {
-	/* TODO */
 }
 
 void help() {
@@ -205,11 +221,36 @@ void help() {
 	printf("    add - Adds new source files to the working project\n");
 	printf("    set - Changes data stored in manifest file");
 	printf("\n\n");
-	printf("For more help check the README or type ffos help [command]\n");
-	
+	printf("For more help check the README or type ffos help [command]\n\n");	
 }
 
-
+void cmd_help(int argc,char **args) {
+	if (argc != 3) {
+		help();
+		exit(1);
+	}
+	char *cmd = args[2];
+	if(!strcmp(cmd,"create")) {
+		printf("    ffos create [appname] - creates an application with the specified name\n\n");
+	}
+	
+	else if(!strcmp(cmd,"add")) {
+		printf("    ffos add css [file] - creates css/file.css\n");
+		printf("    ffos add js [file] - creates js/file.js\n");
+		printf("    ffos add html [file] - creates file.html\n\n");
+	}
+	
+	else if (!strcmp(cmd,"set")) {
+		printf("    ffos set dev.name [dev name] - sets the developer's name to [dev name]\n");
+		printf("    ffos set dev.url [dev url] - sets the developer's url to [dev url]\n");
+		printf("    ffos set launch_path [lp] - sets the launch path to [lp]\n");
+		printf("    ffos set version [ver] - sets the app version to [ver]\n");
+		printf("    ffos set descr [description] - sets the description to [description]\n");
+		printf("    ffos set permission <permission> [description] - sets a permission to the manifest.webapp file\n\n");
+	}
+	
+	else help();
+}
 
 /**************** ffos helper functions ****************/
 
