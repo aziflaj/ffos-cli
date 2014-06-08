@@ -49,7 +49,9 @@ ffos set version 0.3
 Now you start writing the code for your application. ffos-cli creates by default a file named index.html which is set as the launch path. But, you may change this. Firstly you create a html file by executing
 ```
 ffos add html main
+```
 After main.html is created, you make it launch path by executing
+```
 ffos set launch_path main.html
 ```
 
