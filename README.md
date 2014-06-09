@@ -13,9 +13,10 @@ After that, clone this repository to your machine by executing
 git clone https://github.com/aziflaj/ffos-cli.git
 cd ffos-cli
 make
+sudo make install
 ```
 
-This will compile ffos-cli. After that, add ffos-cli to your path. You've got ffos-cli completely installed now.
+Now you've got ffos-cli completely installed now.
 
 ### Creating a new project ###
 In order to create a new project folder with ffos-cli, you should execute
