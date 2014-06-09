@@ -55,6 +55,16 @@ After main.html is created, you make it launch path by executing
 ffos set launch_path main.html
 ```
 
+If later, during the development of the application, you need to add permissions to the manifest.webapp, you may execute
+```
+ffos set permission alarms "This magnificient application will use alarms"
+```
+Also the same may be used to change the description for a permission. If, after that, you execute
+```
+ffos set permission alarms "This magnificient application will use alarms for its needs"
+```
+you will see that the description of the permission is changed
+
 You can also add other files by executing
 ```
 ffos add css main 	# this creates main.css
