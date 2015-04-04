@@ -32,10 +32,8 @@ cd FooProject
 Let's change some things in the manifest file. Firstly, we change the developer's name by executing
 ```
 ffos set dev.name Aldo Ziflaj
-ffos set dev.url https://www.aldoziflaj.me
+ffos set dev.url http://aziflaj.github.io/
 ```
-
-(I'm using my own name and non-existing url here)
 
 After that, we change the description of the project, which by default is "App description here". We do this by executing
 ```
